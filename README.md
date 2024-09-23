@@ -19,6 +19,68 @@
 
 ![](assets/git-flow-new.png)
 
+## 유니티 프로젝트 생성 절차
+
+### 팀장이 해야할 프로젝트 및 Git 초기 설정
+
+1. Github에서 리포지토리 생성
+     - README.md 생성은 선택 사항
+     - .gitignore 생성 : Unity 탬플릿 선택
+
+2. 유니티 프로젝트 생성
+     - 적절한 프로젝트 폴더안에 유니티 프로젝트 생성
+
+3. 터미널에서 깃 초기화
+     - 프로젝트 폴더로 이동 (cd 명령)
+     - 깃 초기화 (git init)
+
+4. 리모트 리포와 연결
+     - git remote add origin [원격 리포 주소]
+
+5. 원격 리포에서 초기 데이터 다운로드
+     - git pull origin master
+     - .gitignore 파일이 로컬로 다운로드 됐는지 확인
+
+6. git lfs 설정
+     - git lfs install
+     - curl [.gitattributes 파일 URL] > .gitattributes
+
+7. lfs 설정 커밋 후 푸시
+     - git add .gitattributes 
+     - git commit -m "Git LFS 설정"
+     - git push origin master
+
+8. 유니티 초기 프로젝트 파일 커밋 후 푸시
+     - git add .
+     - git commit -m "Project 초기파일 추가"
+     - git push origin master
+
+9. GitHub에서 develop 브랜치 생성
+
+#### 팀원의 프로젝트 클론
+
+1. 리모트 리포지토리 클론
+     - 터미널에서 프로젝트 경로로 이동
+     - git clone --branch develop [리모트 리포지토리 URL]
+
+2. 팀원 개인 브랜치 생성
+     - git checkout -b dev/[영문이니셜_3자]
+
+#### 팀장의 로컬 마스터 브랜치 삭제
+
+1. 팀장의 개인 브랜치 생성
+     - git checkout -b develop
+
+2. 마스터 브랜치 삭제
+     - git branch --delete master
+
+3. 팀장 개인 브랜치 생성
+     - git checkout -b dev/[영문이니셜_3자]
+  
+
+---
+
+
 - 작업 시작하기 전 깃 작업
 
 ```shell
